@@ -1,0 +1,5 @@
+makefun-keypair.json
+*.keypair.json
+.makefun/credentials
+transcripts.tar.gz
+.env
