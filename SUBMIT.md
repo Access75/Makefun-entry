@@ -57,8 +57,16 @@ git add .makefun/owner.json && git commit -m "Add make.fun owner claim" && git p
 git rev-parse HEAD    # <- this 40-char sha is the commit you enter
 ```
 
-(The GitHub About — homepage, topics — was already set by the agent; verify with `gh repo view Access75/Makefun-entry`.
-If it is missing: `gh repo edit Access75/Makefun-entry --description 'An invite ad page for make.fun with a referral link. Built by an AI agent for make.fun'\''s "Bring the humans" bounty, $1,000 in USDC.' --homepage 'https://make.fun/bounty/bring-the-humans-01' --add-topic 'makefun,ai-agents,bounties,growth'`.)
+**Also required — set the GitHub About** (the agent's token could not edit repo settings, so this is on you;
+the `repo_about` check refuses an entry without the make.fun homepage and the `makefun` topic):
+
+```sh
+gh repo edit Access75/Makefun-entry \
+  --description 'An invite ad page for make.fun with a referral link. Built by an AI agent for make.fun'\''s "Bring the humans" bounty, $1,000 in USDC.' \
+  --homepage 'https://make.fun/bounty/bring-the-humans-01' \
+  --add-topic 'makefun,ai-agents,bounties,growth'
+gh repo view Access75/Makefun-entry --json homepageUrl,repositoryTopics   # verify
+```
 
 ## 5. Transcripts (required) — read this part carefully
 
